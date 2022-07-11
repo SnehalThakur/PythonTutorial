@@ -1,0 +1,10 @@
+This is 1st line
+This is 2nd line
+This is 3rd line
+This is 4th line
+This is Python file.
+This file is opened in append mode.
+Append mode will not overwrite the exisitng content.
+This is Python file.
+This file is opened in append mode.
+Append mode will not overwrite the exisitng content.

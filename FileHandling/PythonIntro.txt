@@ -1,0 +1,5 @@
+Python is a programming language.
+Python is used in Analytics.
+Python is used in ML.
+Python is used in DL.
+Python is used in NLP.
