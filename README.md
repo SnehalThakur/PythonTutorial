@@ -8,3 +8,5 @@ Python is a high level,object oriented,powerful programming language created by 
 [1. Python Tutorial1- Introduction,Variables and Operations](http://nbviewer.jupyter.org/gist/SnehalThakur/4c5f386cbbc55ddf25b570fb1a7efb12)
 
 [2. Python Tutorial2 - Data types- Integer, Float, String, List, Set, Tuple, Dictionary](https://github.com/SnehalThakur/PythonTutorial/tree/master/PythonDataTypes)
+
+[3. Python Tutorial3 - Control Statements- if, for, while](https://github.com/SnehalThakur/PythonTutorial/tree/master/ControlStatements)
