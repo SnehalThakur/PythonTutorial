@@ -1,0 +1,241 @@
+List all databases
+> SHOW DATABASES
+
+Use/Select daatabase
+> use database_name
+
+List all table present in the database
+> show tables
+
+Describe the table structure (columns names and type)
+> DESCRIBE table_name
+> DESC table_name
+
+The SQL CREATE TABLE Statement
+The CREATE TABLE statement is used to create a new table in a database.
+Syntax-
+    CREATE TABLE table_name (
+        column1 datatype,
+        column2 datatype,
+        column3 datatype,
+       ....
+    );
+> CREATE TABLE Persons (
+    PersonID int,
+    LastName varchar(255),
+    FirstName varchar(255),
+    Address varchar(255),
+    City varchar(255)
+);
+
+Get all records(columns) from the table
+> select * from table_name
+
+Get particular columns data from table
+> select columnName1, columnName2 from table_name
+
+Get only unique records
+> SELECT DISTINCT Column1 from table_name
+
+WHERE Clause - find records with specific condition
+> SELECT * FROM Customers where Country="Germany"
+
+WHERE Clause - AND - If both condition will match then only we will get output.
+The AND operator displays a record if all the conditions separated by AND are TRUE.
+> SELECT * FROM Customers where Country="Germany" and City="Berlin"
+
+WHERE Clause - OR - Either of one condition matches then will get output
+The OR operator displays a record if any of the conditions separated by OR is TRUE.
+> SELECT * FROM Customers where Country="Germany" or City="Berlin"
+
+WHERE Clause - NOT - Discard all records that matches this condition
+The NOT operator displays a record if the condition(s) is NOT TRUE.
+> SELECT * FROM Customers where not Country="Germany"
+
+WHERE Clause - AND - OR
+> SELECT * FROM Customers where Country="USA" AND (City="San Francisco" or City="Portland")
+
+The ORDER BY keyword is used to sort the result-set in ascending or descending order.
+> SELECT * FROM Customers order by Country
+
+The ORDER BY keyword sorts the records in ascending order by default. To sort the records in descending order, use the DESC keyword.
+> SELECT * FROM Customers order by Country DESC
+
+Order by multiple columns
+> SELECT * FROM Customers order by Country, City DESC
+
+INSERT INTO - The INSERT INTO statement is used to insert new records in a table.
+- Insert record Without column names
+Syntax- INSERT INTO table_name VALUES (value1, value2, value3, ...);
+> INSERT INTO Customers
+VALUES (92, 'Cardinal', 'Tom B. Erichsen', 'Skagen 21', 'Stavanger', '4006', 'Norway');
+
+- Insert record with column names
+Syntax- INSERT INTO table_name (column1, column2, column3, ...) VALUES (value1, value2, value3, ...);
+> INSERT INTO Customers (CustomerID, CustomerName, Address, City, PostalCode, Country)
+VALUES (93, "Ishan", "Kharadi", "Pune", "411045","India")
+
+Filter all records whose ContactName column with null value
+> SELECT * FROM Customers where ContactName	is null
+
+Filter all records whose ContactName column with not null value
+> SELECT * FROM [Customers] where ContactName is not null
+
+UPDATE
+Note: Be careful when updating records in a table! Notice the WHERE clause in the UPDATE statement.
+The WHERE clause specifies which record(s) that should be updated.
+If you omit the WHERE clause, all records in the table will be updated!
+Syntax- UPDATE table_name SET column1 = value1, column2 = value2, ... WHERE condition;
+
+> UPDATE Categories set Description="Milk, Curd, Cheeses" where CategoryName="Dairy Products"
+
+UPDATE without WHERE clause
+> update Shippers set ShipperName = "DTDC"
+
+Update multiple column values
+> UPDATE Customers set ContactName="Ishan Shah", PostalCode="411014" where CustomerID=93
+
+DELETE - The DELETE statement is used to delete existing records in a table.
+Note: Be careful when deleting records in a table! Notice the WHERE clause in the DELETE statement.
+The WHERE clause specifies which record(s) should be deleted.
+If you omit the WHERE clause, all records in the table will be deleted!
+Syntax - DELETE FROM table_name WHERE condition
+> delete from Customers where CustomerID=93
+
+DELETE all records from the table
+> delete FROM Shippers
+
+SQL SELECT TOP Clause
+The SELECT TOP clause is used to specify the number of records to return.
+Note: Not all database systems support the SELECT TOP clause.
+MySQL supports the LIMIT clause to select a limited number of records,
+while Oracle uses FETCH FIRST n ROWS ONLY and ROWNUM.
+- SQL Server/MS Access format (SELECT TOP n)
+> SELECT TOP 5 * FROM Customers;
+
+- MySQL format (LIMIT n)
+> SELECT * FROM Customers LIMIT 7;
+
+MIN()
+The MIN() function returns the smallest value of the selected column.
+> SELECT MIN(Price) as minprice FROM [Products]
+
+MAX()
+The MAX() function returns the largest value of the selected column.
+> SELECT MAX(Price) as maxprice FROM [Products]
+
+COUNT()
+The COUNT() function returns the number of rows that matches a specified criterion.
+> SELECT COUNT(*) from [Products]
+
+SUM()
+The SUM() function returns the total sum of a numeric column.
+> SELECT SUM(Price) from [Products]
+
+AVG()
+The AVG() function returns the average value of a numeric column.
+> SELECT AVG(Price) from [Products]
+
+LIKE
+- The LIKE operator is used in a WHERE clause to search for a specified pattern in a column.
+> SELECT * FROM [Customers] where Country like 'U%'
+# Will return all customer records having country starts with U
+
+> SELECT * FROM [Customers] where Country like 'U__%'
+# Will return all customer records having country with minimum 3 chars starts with U
+
+
+IN operator
+The IN operator allows you to specify multiple values in a WHERE clause.
+The IN operator is a shorthand for multiple OR conditions.
+Syntax1 - SELECT column_name(s) FROM table_name WHERE column_name IN (value1, value2, ...);
+Syntax2 - SELECT column_name(s) FROM table_name WHERE column_name IN (SELECT STATEMENT);
+- IN - It will return customer records that belongs to 'Germany', 'France', 'UK'
+> SELECT * FROM Customers WHERE Country IN ('Germany', 'France', 'UK');
+
+- NOT IN - It will return customer records that don't belongs to 'Germany', 'France', 'UK'
+> SELECT * FROM Customers WHERE Country NOT IN ('Germany', 'France', 'UK');
+
+BETWEEN
+- The BETWEEN operator selects values within a given range. The values can be numbers, text, or dates.
+> SELECT * FROM Products WHERE Price BETWEEN 5 AND 100;
+
+> SELECT * FROM Products WHERE Price NOT BETWEEN 10 AND 20;
+
+JOINS
+-------------------------------------------------------
+SQL INNER JOIN Keyword
+The INNER JOIN keyword selects records that have matching values in both tables.
+Syntax-
+    SELECT column_name(s)
+    FROM table1
+    INNER JOIN table2
+    ON table1.column_name = table2.column_name;
+> SELECT Orders.CustomerID, Orders.OrderID, Orders.OrderDate, Customers.CustomerName, Customers.Country
+FROM Orders
+INNER JOIN Customers ON Orders.CustomerID = Customers.CustomerID;
+
+
+
+SQL LEFT JOIN Keyword
+The LEFT JOIN keyword returns all records from the left table (table1),
+and the matching records from the right table (table2).
+The result is 0 records from the right side, if there is no match.
+Syntax -
+    SELECT column_name(s)
+    FROM table1
+    LEFT JOIN table2
+    ON table1.column_name = table2.column_name;
+> SELECT Customers.CustomerID, Customers.CustomerName, Customers.Country, Orders.OrderID, Orders.OrderDate
+FROM Customers
+LEFT JOIN Orders
+ON Customers.CustomerID=Orders.CustomerID;
+
+
+SQL RIGHT JOIN Keyword
+The RIGHT JOIN keyword returns all records from the right table (table2),
+and the matching records from the left table (table1).
+The result is 0 records from the left side, if there is no match.
+Syntax-
+    SELECT column_name(s)
+    FROM table1
+    RIGHT JOIN table2
+    ON table1.column_name = table2.column_name;
+> SELECT Employees.EmployeeID, Orders.OrderID, Orders.OrderDate, Employees.LastName, Employees.FirstName
+FROM Orders RIGHT JOIN Employees
+ON Orders.EmployeeID = Employees.EmployeeID;
+
+
+SQL FULL OUTER JOIN Keyword
+The FULL OUTER JOIN keyword returns all records when there is a match in left (table1) or right (table2)
+table records.
+Syntax -
+    SELECT column_name(s)
+    FROM table1
+    FULL OUTER JOIN table2
+    ON table1.column_name = table2.column_name
+    WHERE condition;
+
+
+
+UNION
+The SQL UNION Operator
+The UNION operator is used to combine the result-set of two or more SELECT statements.
+
+Every SELECT statement within UNION must have the same number of columns
+The columns must also have similar data types
+The columns in every SELECT statement must also be in the same order
+Syntax -
+    SELECT column_name(s) FROM table1
+    UNION
+    SELECT column_name(s) FROM table2;
+
+The UNION operator selects only distinct values by default. To allow duplicate values, use UNION ALL:
+Syntax-
+    SELECT column_name(s) FROM table1
+    UNION
+    SELECT column_name(s) FROM table2;  
+Syntax -
+    SELECT column_name(s) FROM table1
+    UNION ALL
+    SELECT column_name(s) FROM table2;
