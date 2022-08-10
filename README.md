@@ -12,3 +12,5 @@ Python is a high level,object oriented,powerful programming language created by 
 [3. Python Tutorial3 - Control Statements- if, for, while](https://github.com/SnehalThakur/PythonTutorial/tree/master/ControlStatements)
 
 [4. Python Tutorial4 - User Defined Functions & Lambda Functions](https://github.com/SnehalThakur/PythonTutorial/tree/master/UserDefinedFunctions)
+
+[5. Python Tutorial5 - Custom Modules](https://github.com/SnehalThakur/PythonTutorial/tree/master/Modules)
