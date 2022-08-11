@@ -15,4 +15,4 @@ Python is a high level,object oriented,powerful programming language created by 
 
 [5. Python Tutorial5 - Custom Modules](https://github.com/SnehalThakur/PythonTutorial/tree/master/Modules)
 
-[6. Python Tutorial6 - Comprehensions List/Set/Dictionary/Generator](https://github.com/SnehalThakur/PythonTutorial/tree/master/Comprehensions)
+[6. Python Tutorial6 - Comprehensions List/ Set/ Dictionary/ Generator](https://github.com/SnehalThakur/PythonTutorial/tree/master/Comprehensions)
