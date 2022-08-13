@@ -18,3 +18,5 @@ Python is a high level,object oriented,powerful programming language created by 
 [6. Python Tutorial6 - Comprehensions List/ Set/ Dictionary/ Generator](https://github.com/SnehalThakur/PythonTutorial/tree/master/Comprehensions)
 
 [7. Python Tutorial7 - Date Time](https://github.com/SnehalThakur/PythonTutorial/tree/master/DateTime)
+
+[8. Python Tutorial8 - File Handling](https://github.com/SnehalThakur/PythonTutorial/tree/master/FileHandling)
