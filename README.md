@@ -27,6 +27,6 @@ Python is a high level,object oriented,powerful programming language created by 
 
 [11. Python Tutorial11 - Iterators Generator](https://github.com/SnehalThakur/PythonTutorial/tree/master/Iterator_Generator)
 
-[12. Python Tutorial12 - SQLite DB Integration](https://github.com/SnehalThakur/PythonTutorial/tree/master/SQLiteDBIntegration)
+[12. SQLite DB Integration](https://github.com/SnehalThakur/PythonTutorial/tree/master/SQLiteDBIntegration)
 
 [13. BeautifulSoup for HTML parsing](https://github.com/SnehalThakur/PythonTutorial/tree/master/BeautifulSoup)
